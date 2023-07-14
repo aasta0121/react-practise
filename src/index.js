@@ -3,24 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Progress from './Progress';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const printMessage = () => {
-  document.getElementById('show-area').innerHTML = "我被按到了";
-}
-
-/*
-root.render(
-  <React.StrictMode>
-    <App name="Aasta" handleClick={printMessage} />
-    <div id="show-area"></div>
-  </React.StrictMode>
-);
-*/
 
 root.render(
   <React.StrictMode>
-    <App>在index.js中設定文字</App>
+    <Progress />
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

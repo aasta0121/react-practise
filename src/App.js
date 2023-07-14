@@ -1,77 +1,45 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App0() {
-  return (
-    <button>大家好</button>
-  );
-}
-
-/* 第一個練習 Start */
-const styleArgument = { backgroundColor: 'black', color: 'white' };
-const getValue = (value) => {
-  console.log(value)
-}
-
-const multiButton = () => {
-  var output = [];
-  for (let i = 0; i < 4; ++i) {
-    output.push(
-      <button
-        value={i}
-        style={styleArgument}
-        onClick={(event) => { getValue(event.target.value) }}>
-        我是第{i}個按鍵
-      </button>
-    )
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      percent: "30%"
+    }
+    this.changePercent = this.changePercent.bind(this);
+    /*
+    this.name = "舊的名字"
+    this.changeName = this.changeName.bind(this)//綁定自己
+    */
   }
-  return output;
-}
 
-function App1() {
-  return (<div>{multiButton()}</div>)
-}
+  changePercent() {
+    this.setState({ percent: "70%" })
+  }
+  /*
+  changeName(newName) {
+    this.name = newName;
+    console.log('hey');
+  }
 
-/* 第一個練習 End */
-
-/* 第二個練習 Start */
-function App2() {
-  const barWidth = "50%";
-  return (
-    <div>
-      <div className="progress-back" style={{ backgroundColor: "rgba(0,0,0,0.2)", width: "200px", height: "7px", borderRadius: "10px" }}>
-        <div className="progress-bar" style={{ backgroundColor: "#fe5196", width: barWidth, height: "100%", borderRadius: "10px" }}></div>
+  render() {
+    return (
+      <button onClick={this.changeName}>
+        {this.name}
+      </button>
+    );
+  }
+*/
+  render() {
+    return (
+      <div>
+        <div className="progress-back" style={{ backgroundColor: "rgba(0,0,0,0.2)", width: "200px", height: "7px", borderRadius: "10px" }}>
+          <div className="progress-bar" style={{ backgroundColor: "#fe5196", width: this.state.percent, height: "100%", borderRadius: "10px" }}></div>
+        </div>
+        <button onClick={this.changePercent}>轉換百分比 </button>
       </div>
-    </div>
-  );
+    );
+  }
 }
-/* 第二個練習 End */
-
-
-/* 第三個練習 Start */
-//props是唯讀變數
-function App3(props) {
-  return (
-    <button>{props.name},我{props.age}歲</button>
-  );
-}
-/* 第三個練習 End */
-
-/* 第四個練習 Start */
-//props是唯讀變數
-function App4(props) {
-  return (
-    <button onClick={props.handleClick}>{props.name}</button>
-  );
-}
-/* 第四個練習 End */
-
-/* 第五個練習 Start */
-//children常用來做Layout
-function App(props) {
-  return (
-    <button>{props.children}</button>
-  );
-}
-/* 第五個練習 End */
 export default App;
